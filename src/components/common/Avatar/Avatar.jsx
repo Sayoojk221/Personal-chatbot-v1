@@ -1,0 +1,18 @@
+import React from 'react';
+import './Avatar.css';
+
+const Avatar = ({ size = 'medium', onClick, className = '' }) => {
+  return (
+    <button 
+      className={`avatar avatar--${size} ${className}`}
+      onClick={onClick}
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+    </button>
+  );
+};
+
+export default Avatar;

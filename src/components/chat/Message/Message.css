@@ -1,0 +1,77 @@
+.message {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.message-avatar {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.assistant-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+}
+
+.message-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.message-text {
+  color: #1f2937;
+  line-height: 1.6;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.message-paragraph {
+  margin-bottom: 16px;
+}
+
+.message-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.message-time {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.user-message .message-text {
+  font-weight: 500;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .message-text {
+    color: #f9fafb;
+  }
+
+  .message-time {
+    color: #6b7280;
+  }
+
+  .assistant-avatar {
+    background-color: #374151;
+    color: #9ca3af;
+  }
+}
