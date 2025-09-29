@@ -21,9 +21,17 @@
   padding: 16px 20px;
   border-bottom: 1px solid #e5e7eb;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   background-color: #ffffff;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 8px;
 }
 
 .sidebar-header h2 {
@@ -31,6 +39,157 @@
   font-size: 16px;
   font-weight: 600;
   color: #1f2937;
+}
+
+.new-chat-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  background-color: #f3f4f6;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.new-chat-btn:hover {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.new-chat-btn:active {
+  transform: scale(0.95);
+}
+
+.new-chat-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.connection-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #6b7280;
+}
+
+.connection-status.connected .status-indicator {
+  background-color: #10b981;
+  animation: pulse-green 2s infinite;
+}
+
+.connection-status.connecting .status-indicator {
+  background-color: #f59e0b;
+  animation: pulse-yellow 1s infinite;
+}
+
+.connection-status.error .status-indicator {
+  background-color: #ef4444;
+  animation: pulse-red 1s infinite;
+}
+
+.connection-status.disconnected .status-indicator {
+  background-color: #6b7280;
+}
+
+.status-text {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.connection-status.connected .status-text {
+  color: #059669;
+}
+
+.connection-status.connecting .status-text {
+  color: #d97706;
+}
+
+.connection-status.error .status-text {
+  color: #dc2626;
+}
+
+.error-message {
+  margin-top: 4px;
+  padding: 4px 8px;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 4px;
+  color: #dc2626;
+  font-size: 11px;
+  text-align: center;
+  max-width: 240px;
+  word-wrap: break-word;
+}
+
+@keyframes pulse-green {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulse-yellow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes pulse-red {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.loading-state {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.loading-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #e5e7eb;
+  border-top: 2px solid #6366f1;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .chat-main {
@@ -103,6 +262,16 @@
     color: #f9fafb;
   }
 
+  .new-chat-btn {
+    background-color: #374151;
+    color: #9ca3af;
+  }
+
+  .new-chat-btn:hover {
+    background-color: #4b5563;
+    color: #f3f4f6;
+  }
+
   .chat-main {
     background-color: #1f2937;
   }
@@ -117,5 +286,36 @@
 
   .empty-state-content p {
     color: #9ca3af;
+  }
+
+  .error-message {
+    background-color: #1f2937;
+    border-color: #374151;
+    color: #f87171;
+  }
+
+  .status-text {
+    color: #9ca3af;
+  }
+
+  .connection-status.connected .status-text {
+    color: #34d399;
+  }
+
+  .connection-status.connecting .status-text {
+    color: #fbbf24;
+  }
+
+  .connection-status.error .status-text {
+    color: #f87171;
+  }
+
+  .loading-content {
+    color: #9ca3af;
+  }
+
+  .loading-spinner {
+    border-color: #374151;
+    border-top-color: #6366f1;
   }
 }

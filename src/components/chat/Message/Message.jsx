@@ -17,6 +17,18 @@ const Message = ({ message }) => {
       ));
   };
 
+  const formatTimestamp = (timestamp) => {
+    // Handle both Date objects and string timestamps from localStorage
+    const date = timestamp instanceof Date ? timestamp : new Date(timestamp);
+    
+    // Check if the date is valid
+    if (isNaN(date.getTime())) {
+      return 'Invalid time';
+    }
+    
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  };
+
   return (
     <div className={`message ${message.type === 'user' ? 'user-message' : 'assistant-message'}`}>
       <div className="message-avatar">
@@ -41,7 +53,7 @@ const Message = ({ message }) => {
           {formatMessage(message.content)}
         </div>
         <div className="message-time">
-          {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+          {formatTimestamp(message.timestamp)}
         </div>
       </div>
     </div>

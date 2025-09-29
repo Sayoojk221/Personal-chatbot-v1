@@ -67,9 +67,6 @@ const ChatInput = ({ onSendMessage, isLoading, placeholder = "Ask me anything...
           </Button>
         </div>
       </form>
-      <div className="input-footer">
-        <span className="model-info">GPT-4</span>
-      </div>
     </div>
   );
 };
